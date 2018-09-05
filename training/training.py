@@ -85,16 +85,16 @@ def train(config):
     for epoch in range(config["epochs"]):
         for step, samples in enumerate(dataloader):
 
-            multi_scale = np.random.randint(10, 21)*32
-            multi_scale = tuple((multi_scale, multi_scale))
+            #multi_scale = np.random.randint(10, 21)*32
+            #multi_scale = tuple((multi_scale, multi_scale))
             images, labels = samples["image"], samples["label"]
-            images = images.numpy()
-            images = np.transpose(images, (0, 2, 3, 1))
-            new_images = np.zeros((config['batch_size'], multi_scale[0], multi_scale[1], 3))
-            for i in range(images.shape[0]):
-                new_images[i] = cv2.resize(images[i], multi_scale, interpolation=cv2.INTER_LINEAR)
-            images = np.transpose(new_images, (0, 3, 1, 2))
-            images = torch.FloatTensor(images)
+            #images = images.numpy()
+            #images = np.transpose(images, (0, 2, 3, 1))
+            #new_images = np.zeros((config['batch_size'], multi_scale[0], multi_scale[1], 3))
+            #for i in range(images.shape[0]):
+            #    new_images[i] = cv2.resize(images[i], multi_scale, interpolation=cv2.INTER_LINEAR)
+            #images = np.transpose(new_images, (0, 3, 1, 2))
+            #images = torch.FloatTensor(images)
 
             start_time = time.time()
             config["global_step"] += 1
